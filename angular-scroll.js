@@ -523,7 +523,6 @@ angular.module('duScroll.scrollContainer', ['duScroll.scrollContainerAPI'])
 
   return {
     restrict: 'A',
-    scope: true,
     compile: function compile(tElement, tAttrs, transclude) {
       return {
         pre: function preLink($scope, iElement, iAttrs, controller) {
