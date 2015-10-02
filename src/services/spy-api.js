@@ -86,6 +86,10 @@ angular.module('duScroll.spyAPI', ['duScroll.scrollContainerAPI'])
     context.handler = createScrollHandler(context);
     contexts[id] = context;
 
+    $scope.$on('updateScroll', function () {
+      $timeout(context.handler);
+    });
+
     $scope.$on('$destroy', function() {
       destroyContext($scope);
     });
