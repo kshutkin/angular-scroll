@@ -7,9 +7,15 @@ angular.module('duScroll.spyAPI', ['duScroll.scrollContainerAPI'])
     var handler = function() {
       queued = false;
       var container = context.container,
-          containerEl = container[0],
           containerOffset = 0,
+          containerEl,
           bottomReached;
+
+      if (container) {
+        containerEl = container[0];
+      } else {
+        return;
+      }
 
       if (typeof HTMLElement !== 'undefined' && containerEl instanceof HTMLElement || containerEl.nodeType && containerEl.nodeType === containerEl.ELEMENT_NODE) {
         containerOffset = containerEl.getBoundingClientRect().top;
